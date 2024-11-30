@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user_dashboard/user_base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <section>
+        <div class="container mt-2"> 
+            <div class="p-5">
+            <h1 class="text-center p-1">This is User Dashboard</h1>
+            <h3>UserName: <span th:text="${user.name}"></span></h3>
+            <h3>Email: <span th:text="${user.email}"></span></h3>
+            <p>Password: <span th:text="${user.password}"></span></p>
+            <div class="pt-2">
+             <a href="/logout"><button class="btn btn-info btn-md">Logout</button> </a>
+            </div>
+           </div>
+        </div>
+    </section>
+</body>
+</html>
