@@ -1,0 +1,30 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    background-color: rgb(75, 104, 137);
+}
+
+.bg-primary {
+    background-color: #009688 !important;
+}
+
+/* Home Banner */
+.hm-ban {
+    width:100%;
+    height: 90vh;
+    background-image: linear-gradient(rgb(0,0,0,0.7), rgb(0,0,0,0.7)) ,url("../image/banner.jpg");     
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: #ffff;
+}
+.ban-all {
+    width:100%;
+    height: 90vh;
+    background-image: linear-gradient(rgb(0,0,0,0.9), rgb(0,0,0,0.7)) ,url("../image/banner-all.jpg");     
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: #ffff;
+}
