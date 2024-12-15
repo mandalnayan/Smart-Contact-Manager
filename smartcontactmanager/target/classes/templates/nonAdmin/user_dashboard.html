@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="nonAdmin/Adminbase::Layout(~{::section})">    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="ban-all">
+        <h1>Dashboard</h1>
+        <h2>User Name <span th:text="${user.name}"></span></h2>
+         <h2><span th:text="${user.role}"></span></h2>
+    </section>
+</body>
+</html>
