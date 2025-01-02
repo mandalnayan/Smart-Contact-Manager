@@ -42,7 +42,7 @@ public class User {
     private String about; 
 
     // one to many (One use has many contact)
-    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="user")
+    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="user" ,orphanRemoval=true)
     private List<Contact> contacts = new ArrayList<>();
     
     public List<Contact> getContacts() {
