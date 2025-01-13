@@ -28,11 +28,15 @@
                     <tbody>
                         <tr>
                             <th scope="col">Email</th>
-                            <td th:text="${contact.email}"></td>
+                            <td>
+                                <a th:href="@{'mailto:' + ${contact.email}}"><span th:text="${contact.email}">user@gmail.com</span></a>
+                            </td>
                         </tr>
                         <tr>
                             <th>Phone Number</th>
-                            <td th:text="${contact.phones}"></td>
+                            <td>
+                                <a th:href="@{'tel:' + ${contact.phones}}"><span th:text="${contact.phones}">99999999</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -51,6 +55,7 @@
             <span th:text="${err_mes}">Contact Not found ! Or You can't access this contact.</span>
          </div>
         </div>
+
     </section>
 </body>
 

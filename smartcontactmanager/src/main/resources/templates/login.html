@@ -15,11 +15,12 @@
                         <div id="login-box" class="col-md-12">
                             <form id="login-form" class="form" th:action="@{/dologin}" method="post">
                                 <h3 class="text-center text-info">Login</h3>
-                                <div class="ps-2">
-                                <span th:if="${param.error}" class="alert alert-danger pt-2 pb-2"> Invalid Credentials! </span>
-                                <span th:if="${param.Logout}" class="alert alert-success pt-2 pb-2"> You have been logged out !</span>
+                                <div class="ps-2 text-center">
+                                <p th:if="${param.error}" class="alert alert-danger pt-2 pb-2"> Invalid Credentials! </p>
+                                <p th:if="${param.Logout}" class="alert alert-success pt-2 pb-2"> You have been logged out !</p>
+                                <p th:if="${param.change_pass}" class="alert alert-success pt-2 pb-2"> Password changed successfully ! Please login again</p>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group"> 
                                     <label for="username" class="text-info">Username:</label><br>
                                     <input type="text" name="username" id="username" class="form-control" >
                                 </div>
@@ -33,6 +34,7 @@
                                 </div>
                                 <div id="register-link" class="text-right">
                                     <a href="./signup" class="text-info">Register here</a>
+                                    <a th:href="@{/forget-password}" class="text-info ps-3">Forget Password</a>
                                 </div>
                             </form>
                         </div>

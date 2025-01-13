@@ -11,8 +11,11 @@
      <link rel="stylesheet" th:href="@{/css/style.css}">
      <!-- Icon stylesheet -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+   
     </head>
   <body>
+      
       <!-- Navigation bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-sm-top">
     <div class="container-fluid">
@@ -40,15 +43,16 @@
     </div>
   </nav>
 
-<!-- End navigation bar -->
+<!-- Sidebar navigation bar -->
+
  <div class="sidebar">
   <span onclick="toggleSidebar()" class="crossBtn">&times</span>
 
-  <a th:href="@{/user/index}" class="item"> <i class="fa-solid fa-house"></i> Home</a>
-  <a th:href="@{/user/view-contacts/0}" class="item"> <i class="fa-solid fa-address-card"></i> View Contact</a>
-  <a th:href="@{/user/addContact}" class="item"> <i class="fa-solid fa-address-card"></i> Add Contact</a>
-  <a th:href="@{/user/profile}" class="item"> <i class="fa-solid fa-user"></i> Your Profile</a>
-  <a href="#" th:href="@{/user/setting}" class="item"> <i class="fa-solid fa-gear"></i> Setting</a>
+  <a id="home-link" th:href="@{/user/index}" class="item"> <i class="fa-solid fa-house"></i> Home</a>
+  <a id="view-link" th:href="@{/user/view-contacts/0}" class="item"> <i class="fa-solid fa-address-card"></i> View Contact</a>
+  <a id="add-link" th:href="@{/user/addContact}" class="item"> <i class="fa-solid fa-address-card"></i> Add Contact</a>
+  <a id="profile-link" th:href="@{/user/profile}" class="item"> <i class="fa-solid fa-user"></i> Your Profile</a>
+  <a id="setting-link" href="#" th:href="@{/user/setting}" class="item"> <i class="fa-solid fa-gear"></i> Setting</a>
   <a href="#" th:href="@{/logout}" class="item"> <i class="fa-solid fa-right-from-bracket"></i> LogOut</a>
  </div>
  

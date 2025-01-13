@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="nonAdmin/Adminbase::Layout(~{::section})">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Details</title>
+</head>
+
+<body>
+  <section>
+    <div class="card p-4">
+      <h1>Profile Setting</h1>
+      <div class="form-row my-3 ">
+        <form th:action="@{/user/setting-handler}" method="POST" class="needs-validation" > 
+              <div class="container text-center pb-2">
+                <span class="alert text-success" th:text="${suc_mes}"></span>
+                <span class="alert text-danger" th:text="${err_mes}"></span>
+              </div>
+              <div class="pb-3">
+                <!-- Old Password -->
+                <input type="password" class="form-control" name="old-password" placeholder="Enter old password" required>
+              </div>
+              <!-- New password -->
+              <div class="pb-3">
+                <input type="password" class="form-control" id="validationCustom03" name="new-password" placeholder="Enter new password" required>
+              </div>
+              <div class="container text-center">
+                <button class="btn btn-success" type="sumbit">Change</button>
+                <button class="btn btn-warning" type="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- To make link active -->
+        <script>
+          $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#setting-link').addClass('active');
+          });            
+        </script>
+  </section>
+</body>
+
+</html>

@@ -50,9 +50,11 @@
                             <td> 
                               <a th:href="@{'/user/' + ${contact.cId} + '/' + ${currentPage} + '/contact'}"> <span th:text="${contact.email}">Dummy@email</span></a>
                             </td>
-                            <td th:text="${contact.phones}">999999999</td>
                             <td>
-                            <a th:href="@{'/user/' + ${contact.cId} + '/update'}"><button class="btn btn-outline-primary mb-2">Update</button></a>
+                              <a th:href="@{'tel:' + ${contact.phones}}"><span th:text="${contact.phones}">9999999999</span></a>
+                            </td>
+                            <td>
+                            <a th:href="@{'/user/' + ${contact.cId} + '/update'}"><button class="btn btn-outline-primary ">Update</button></a>
                             <button class="btn btn-outline-danger" th:onclick="|deleteContact(${contact.cId}, ${currentPage})|">Delete</button>
                             </td>
                           </tr>
@@ -84,6 +86,15 @@
                 </div>
             </div>
         </div>
+
+        <!-- To make active -->
+        <script>
+          $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#view-link').addClass('active');
+          });            
+        </script>
+
     </section>
 </body>
 </html>

@@ -15,6 +15,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,6 +44,9 @@ public class UserController {
     private UserRepository userRepository;
     @Autowired
     private ContactRepository contactRepository;
+    
+    @Autowired
+    BCryptPasswordEncoder encoder;
 
     @ModelAttribute
     public void addCommonData(Model model, Principal principal) {
@@ -259,6 +264,33 @@ public class UserController {
             return "redirect:/user/view-contacts/" + curPage;
         }
     }
+    
+    @GetMapping("/setting")
+    public String setting() {
+        return "nonAdmin/setting";
+    }
 
+    @PostMapping("/setting-handler")
+    public String changePassword(@RequestParam("old-password") String old_pass, @RequestParam("new-password") String new_pass, Principal principal, Model model) {
+       try {
+        User user = userRepository.getUserByUserName(principal.getName());
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        if (encoder.matches(old_pass, user.getPassword())) {
+            System.out.println("Password matched!");
+            String decryptedPassword = encoder.encode(new_pass);
+            user.setPassword(decryptedPassword);
+            userRepository.save(user);
+            model.addAttribute("suc_mes", "Password changed successfully!");
+        } else {
+            // System.out.println("Sorry, You have to try");    
+            model.addAttribute("err_mes", "Password Not matched! Please Enter correct");
+            throw new Exception();        
+        }
+    } catch(Exception e) {
+        model.addAttribute("err_mes", "Password Not matched!");
+    }
+        return "nonAdmin/setting";
+    }
     
 }

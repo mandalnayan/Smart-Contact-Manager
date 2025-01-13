@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Password</title>
+</head>
+<body>
+    <section class="ban-all">
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <div class="text-center ps-2 pe-2">
+                            <p th:if="${err_mess}" class="alert alert-danger text-center" th:text="${err_mess}"></p>
+                            <p th:if="${suc_mess}" class="alert alert-success text-center" th:text="${suc_mess}"></p>
+                           </div>
+                            <form id="login-form" class="form" th:action="@{/otp-varify}" method="post">
+                                <h3 class="text-center text-info">Enter OTP</h3>
+                                <div class="form-group">
+                                    <input type="text" name="otp" class="form-control" placeholder="Enter Valid OTP">
+                                </div>
+                                <div id="register-link" class="text-center">
+                                    <button type="submit" class="btn btn-success">Verify</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

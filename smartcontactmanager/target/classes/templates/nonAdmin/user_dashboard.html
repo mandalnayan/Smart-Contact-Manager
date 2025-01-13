@@ -11,6 +11,17 @@
         <h1>Dashboard</h1>
         <h2>User Name <span th:text="${user.name}"></span></h2>
          <h2><span th:text="${user.role}"></span></h2>
-    </section>
+         <div class="text-center">
+         <p th:if ="${suc_mess}" class="alert alert-success" th:text="${suc_mess}"></p>
+         <p th:if ="${err_mess}" class="alert alert-danger" th:text="${err_mess}"></p>
+         </div>
+         <script>
+            $(document).ready(() => {
+              $('.item').removeClass('active');
+              $('#home-link').addClass('active');
+            });            
+          </script>
+                
+  </section>
 </body>
 </html>

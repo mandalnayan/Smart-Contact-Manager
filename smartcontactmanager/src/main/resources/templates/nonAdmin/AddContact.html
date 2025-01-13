@@ -107,6 +107,12 @@
             tinymce.init({
               selector: '#mytextarea'
             });
+
+//        To make link active
+            $(document).ready(() => {
+              $('.item').removeClass('active');
+              $('#add-link').addClass('active');
+            });        
           </script>
     
     </section>
