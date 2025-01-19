@@ -13,7 +13,7 @@
             <div class="card-body view-contacts" th:if="${user}">
                 <div class="box text-center d-flex justify-content-center align-items-center gap-10">
                     <!-- <h1>Your Contact</h1> -->
-                    <img src="" th:src="@{'/image/' + ${user.imageUrl}}" alt="" class="profile_img_bg">
+                    <img src="" th:src="@{'/image/default.jpg'}" alt="profile image" class="profile_img_bg">
                     <h2 th:text="'( ' + ${user.name} + ' )'" class="p-3"></h2>
                 </div>
                 <!-- Updation message -->

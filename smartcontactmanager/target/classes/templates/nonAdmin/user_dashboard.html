@@ -8,13 +8,31 @@
 </head>
 <body>
     <section class="ban-all">
-        <h1>Dashboard</h1>
-        <h2>User Name <span th:text="${user.name}"></span></h2>
-         <h2><span th:text="${user.role}"></span></h2>
-         <div class="text-center">
-         <p th:if ="${suc_mess}" class="alert alert-success" th:text="${suc_mess}"></p>
-         <p th:if ="${err_mess}" class="alert alert-danger" th:text="${err_mess}"></p>
-         </div>
+      <div class="card">
+        <div class="card-body view-contacts" th:if="${user}">
+            <div class="box text-center m-auto w-75">
+                <!-- <h1>Your Contact</h1> -->
+                <img src="" th:src="@{'/image/default.jpg'}" alt="profile image" class="profile_img_bg">
+                <h1>SMART <span class="wd-color">CONTACT</span> MANAGER</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquid. Cum mollitia molestiae debitis autem non laborum quibusdam. Ipsam, fuga!</p>
+            </div>
+            <!-- Updation message -->
+            <div th:if="${suc_mess}" th:text="${suc_mess}" class="alert alert-success p-2 col-sm-6 mt-2 mb-2 m-auto text-center"></div>
+          
+
+            <!-- <a th:href="@{'/user/view-contacts/' + ${currentPage}}"><button class="btn btn-outline-primary">Back</button></a> -->
+                <div class="text-center pt-4">
+                    <a th:href="@{/user/addContact}"><button class="btn btn-primary">Add Contact</button></a>
+                </div>
+        </div>
+    <!-- Error message -->
+     <div th:unless="${user}" 
+     class="bg-danger text-white p-2 text-center">
+        <!-- <span th:text="${err_mes}">User Not found ! Or You can't access this user.</span> -->
+     </div>
+    </div>
+
+
          <script>
             $(document).ready(() => {
               $('.item').removeClass('active');
